@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Blog of page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<ins th:insert="blocks/header :: header"></ins>
+
+<body>
+
+<div class="container mt-5">
+    <h1>Blog of page</h1>
+    <div th:each="post : ${posts}" class="alert alert-info mt-2">
+        <h3 th:text="${post.title}"></h3>
+        <p th:text="${post.anons}"></p>
+        <a th:href=" @{'/blog/' + ${post.id}}" class="btn btn-warning">More</a>
+    </div>
+
+</div>
+
+
+<ins th:insert="blocks/footer :: footer"></ins>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<header th:fragment="header">
+    <title th:text="${title}"></title>
+    <link th:href="@{/styles/style.css}" rel="stylesheet"/>
+    <h4>Blog</h4>
+        <nav>
+            <ul class="nav_links">
+                <li><a href="/">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/blog/add">Add post</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="#"><button>Sign Up</button></a>
+</header>
