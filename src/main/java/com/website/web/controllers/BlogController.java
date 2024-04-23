@@ -88,8 +88,8 @@ public class BlogController {
     }
 
     //metoda nefinalizata ce trebuie sa prelucreze adresa /about si sa deschida pagina about(inca nu are file de tip .hmtl)
-    /*@GetMapping("/about")
+    @GetMapping("/about")
     public String aboutMain(Model model){
         return "about-main";
-    }*/
+    }
 }

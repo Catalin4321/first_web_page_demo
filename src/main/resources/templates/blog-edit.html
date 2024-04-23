@@ -14,9 +14,9 @@
     <h1>Edit post</h1>
     <div th:each="pos : ${post}">
         <form method="post">
-            <input type="text" th:value="${pos.title}" name="title" placeholder="Add post name" class="form-control"><br>
-            <input type="text" th:value="${pos.anons}" name="anons" placeholder="Add anons" class="form-control"><br>
-            <textarea name="full_text" placeholder="Add text" class="form-control" th:text="${pos.full_text}" /> <br>
+            <input type="text" th:value="${pos.title}" name="title" placeholder="Add post name" class="form-control" required><br>
+            <input type="text" th:value="${pos.anons}" name="anons" placeholder="Add anons" class="form-control" required><br>
+            <textarea name="full_text" placeholder="Add text" class="form-control" th:text="${pos.full_text}" required/> <br>
 
             <button type="submit" class="btn btn-success">Edit</button>
         </form>

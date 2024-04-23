@@ -1,9 +1,6 @@
 package com.website.web.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 //crearea tabelului pentru baza de date
 @Entity
@@ -12,7 +9,8 @@ public class Post {
     //crearea campurilor tabelului
     //crearea coloanei pentru id cu generarea automata a ID
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "my_entity_seq")
+    @SequenceGenerator(name="my_entity_seq", sequenceName = "my_entity_seq", allocationSize = 10, initialValue = 1)
     private Integer id;
 
     private String title, anons, full_text;
