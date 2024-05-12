@@ -13,7 +13,7 @@ public class Post {
     @SequenceGenerator(name="my_entity_seq", sequenceName = "my_entity_seq", allocationSize = 10, initialValue = 1)
     private Integer id;
 
-    private String title, anons, full_text;
+    private String title, anons, full_text, comment;
     private int views;
 
     public Integer getId() {
@@ -56,11 +56,19 @@ public class Post {
         this.views = views;
     }
 
+    public void setComment(String comment){
+        this.comment=comment;
+    }
+    public String getComment(){
+        return comment;
+    }
+
     //crearea constructorului pentru a salva datele din pagina web in BD
-    public Post(String title, String anons, String full_text) {
+    public Post(String title, String anons, String full_text, String comment) {
         this.title = title;
         this.anons = anons;
         this.full_text = full_text;
+        this.comment=comment;
     }
 
     //fara un constructor default nu merge codul

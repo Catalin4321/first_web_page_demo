@@ -35,8 +35,8 @@ public class BlogController {
 
     //controller-ul dat preia valorile din pagina web si le salveaza in BD
     @PostMapping("/blog/add")
-    public String blogPostAdd(@RequestParam String title, @RequestParam String anons, @RequestParam String full_text, Model model){
-        Post post = new Post(title, anons, full_text);
+    public String blogPostAdd(@RequestParam String title, @RequestParam String anons, @RequestParam String full_text, @RequestParam String comment,Model model){
+        Post post = new Post(title, anons, full_text, comment);
         postRepository.save(post);
         return "redirect:/blog";
     }
@@ -47,7 +47,7 @@ public class BlogController {
         if(!postRepository.existsById(id)){
             return "redirect:/blog";
         }
-       Optional<Post> post = postRepository.findById(id);
+        Optional<Post> post = postRepository.findById(id);
         ArrayList<Post> res = new ArrayList<>();
         post.ifPresent(res :: add);
         model.addAttribute("post", res);
@@ -69,11 +69,12 @@ public class BlogController {
 
     //metoda care preia valorile modificate si le acualizeaza in baza de date
     @PostMapping("/blog/{id}/edit")
-    public String blogPostUpdate(@PathVariable(value = "id") Integer id ,@RequestParam String title, @RequestParam String anons, @RequestParam String full_text, Model model){
+    public String blogPostUpdate(@PathVariable(value = "id") Integer id ,@RequestParam String title, @RequestParam String anons, @RequestParam String full_text, @RequestParam String comment, Model model){
        Post post = postRepository.findById(id).orElseThrow();
        post.setTitle(title);
        post.setAnons(anons);
        post.setFull_text(full_text);
+       post.setComment(comment);
        postRepository.save(post);
 
         return "redirect:/blog";

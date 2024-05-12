@@ -15,6 +15,7 @@
         <h3 th:text="${pos.title}"></h3>
         <p th:text="${pos.full_text}"></p>
         <p><b>Views:</b> <span th:text="${pos.views}"/></p>
+        <p><b>Comments:</b> <span th:text="${pos.comment}"/></p>
         <a th:href=" @{'/blog/' + ${pos.id} + '/edit'}" class="btn btn-warning">Edit</a>
         <br><br>
         <form th:action=" '/blog/' + ${pos.id} + '/remove'" method="post">
